@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-yellow: #F5C518;
+  --brand-gold: #D4A017;
+  --brand-black: #0A0A0A;
+  --brand-card: #191919;       /* lightened from #111111 */
+  --brand-border: #2a2a2a;     /* lightened from #222222 */
+  --brand-red: #E53935;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0A0A0A;
+  color: #ffffff;
+  font-family: Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+::-webkit-scrollbar-thumb {
+  background: #F5C518;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4A017;
+}
+
+/* Selection color */
+::selection {
+  background-color: #F5C518;
+  color: #0A0A0A;
+}
+
+/* Noise texture overlay utility */
+.noise-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Yellow glow utility */
+.glow-yellow {
+  box-shadow: 0 0 20px rgba(245, 197, 24, 0.3), 0 0 60px rgba(245, 197, 24, 0.1);
+}
+
+.glow-yellow-sm {
+  box-shadow: 0 0 10px rgba(245, 197, 24, 0.2);
+}
+
+/* Text gradient utility */
+.text-gradient-yellow {
+  background: linear-gradient(135deg, #F5C518 0%, #D4A017 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-fire {
+  background: linear-gradient(135deg, #F5C518 0%, #F57C00 50%, #E53935 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Section divider */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #222222, transparent);
+}
+
+/* Pattern background */
+.pattern-bg {
+  background-image:
+    linear-gradient(rgba(245, 197, 24, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 197, 24, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Cinematic overlay */
+.cinematic-overlay {
+  background: linear-gradient(
+    to right,
+    rgba(10, 10, 10, 0.97) 0%,
+    rgba(10, 10, 10, 0.8) 50%,
+    rgba(10, 10, 10, 0.5) 100%
+  );
+}
+
+@layer utilities {
+  .border-brand {
+    border-color: #222222;
+  }
+}
